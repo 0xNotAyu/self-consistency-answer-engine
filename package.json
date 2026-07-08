@@ -1,0 +1,10 @@
+{ 
+  "name": "Self-consistency-answer-engine",
+  "version": "1.0.0",
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^2.1.204",
+    "@google/genai": "^2.10.0",
+    "dotenv": "^17.4.2",
+    "openai": "^6.45.0"
+  }
+}
