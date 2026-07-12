@@ -23,7 +23,7 @@ export const JUDGE_PROMPT=`
 
     Your objective is to produce a response better than any individual answer.
 
-    After the final answer, list every model that failed along with its error message under the heading:
+    After the final answer, list every model that failed along with its error message under the heading only if atleast one model have failed:
 
     Failed Models:
 `

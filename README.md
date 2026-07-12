@@ -139,9 +139,27 @@ Ask anything >
 Example
 
 ```
-Ask anything >
 
-Why is the sky blue?
+Ask anything > test
+
+ It seems like you're testing the system. How can I assist you today? 
+ -OpenAI 
+
+
+ test 
+ -ClaudeAI 
+
+
+ The request is for me to provide a direct answer, adhering strictly to a 50-word maximum. I am to demonstrate conciseness and deliver information efficiently within this specific constraint. 
+ -Gemini 
+
+
+ Based on the responses, the human appears to be testing the system's functionality. The most appropriate synthesized response would acknowledge the test while offering assistance:
+
+"I see you're testing the system. Everything appears to be working correctly. I'm ready to help you with any questions or tasks you may have. Please feel free to ask me anything you'd like assistance with."
+
+This synthesis combines OpenAI's helpful offer of assistance with the acknowledgment that this is a test, while maintaining more substance than Claude's minimal response and avoiding Gemini's misinterpretation of the task. 
+ -Judge-Layer 
 ```
 
 ---
