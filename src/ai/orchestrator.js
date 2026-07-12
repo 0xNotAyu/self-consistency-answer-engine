@@ -41,7 +41,7 @@ export async function SelfConsistencyAnswerEngine(query){
     })
 
     const finalResponse = await client.responses.create({
-        model: 'anthropic/claude-3-haiku',
+        model: 'anthropic/claude-opus-4',
         max_output_tokens: 1024,
         input: [
             {
