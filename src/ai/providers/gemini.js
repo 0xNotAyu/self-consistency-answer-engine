@@ -8,10 +8,11 @@ const client = new OpenAI({
 })
 
 export async function AskGeminiAI(query) {
-   const response = await client.responses.create({
-       model: 'google/gemini-2.0-flash',
-       max_output_tokens: 1024,
-       input: [
+    try{
+        const response = await client.responses.create({
+        model: 'google/gemini-2.0-flash',
+        max_output_tokens: 1024,
+        input: [
            {
                role: 'system',
                content: SYSTEM_PROMPT
@@ -20,8 +21,16 @@ export async function AskGeminiAI(query) {
                role: 'user',
                content: query
            }
-       ]
+        ]
    })
-   
-  return response.output_text
+   return {
+        success: true,
+        output: response.output_text
+    }
+    }catch(err){
+        return {
+            success: false,
+            output: `GeminiAI call failed! ❌: ${err}`
+        }
+    }
 }

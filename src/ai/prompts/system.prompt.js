@@ -2,7 +2,7 @@ export const SYSTEM_PROMPT=`Directly answer in 50 words`
 
 export const JUDGE_PROMPT=`
     You are acting as an impartial AI judge.
-    Give answer in 100 words max.
+    Give answer in 70 words max.
 
     Evaluate every answer using these criteria:
 
@@ -22,4 +22,8 @@ export const JUDGE_PROMPT=`
     If one answer contains useful unique information, include it only if it is consistent with the rest.
 
     Your objective is to produce a response better than any individual answer.
+
+    After the final answer, list every model that failed along with its error message under the heading:
+
+    Failed Models:
 `

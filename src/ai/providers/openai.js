@@ -9,7 +9,8 @@ const client = new OpenAI({
 })
 
 export async function AskOpenAI(query) {
-    const response = await client.responses.create({
+    try{
+        const response = await client.responses.create({
         model: 'gpt-4o-mini',
         max_output_tokens: 1024,
         input: [
@@ -24,5 +25,16 @@ export async function AskOpenAI(query) {
         ]
     })
 
-    return response.output_text
+    return {
+        success: true,
+        output: response.output_text
+    }
+    }catch(err){
+        return {
+            success: false,
+            output: `OpenAI call failed! ❌: ${err}`
+        }
+    }
+
+    
 }

@@ -9,6 +9,7 @@ const client = new OpenAI({
 })
 
 export async function AskClaudeAI(query){
+    try{
     const response = await client.responses.create({
         model: 'anthropic/claude-3-haiku',
         max_output_tokens: 1024,
@@ -24,6 +25,15 @@ export async function AskClaudeAI(query){
         ]
     })
 
-    return response.output_text
+    return {
+        success: true,
+        output: response.output_text
+    }
+    }catch(err){
+        return {
+            success: false,
+            output: `ClaudeAI call failed! ❌: ${err}`
+        }
+    }
 }
 

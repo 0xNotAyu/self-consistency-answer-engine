@@ -13,24 +13,27 @@ export async function SelfConsistencyAnswerEngine(query){
             AskGeminiAI(query)
         ]
     )
-    console.log(`\n ${openai_response} \n -OpenAI \n`)
-    console.log(`\n ${claude_response} \n -ClaudeAI \n`)
-    console.log(`\n ${gemini_resposnse} \n -Gemini \n`)
+    console.log(`\n ${openai_response.output} \n -OpenAI \n`)
+    console.log(`\n ${claude_response.output} \n -ClaudeAI \n`)
+    console.log(`\n ${gemini_resposnse.output} \n -Gemini \n`)
 
     const evalauationInput = {
         question: query,
         responses: [
             {
                 model: "OpenAI",
-                answer: openai_response
+                success: openai_response.success,
+                answer: openai_response.output
             },
             {
                 model: "ClaudeAI",
-                answer: claude_response
+                success: claude_response.success,
+                answer: claude_response.output
             },
             {
                 model: "GeminiAI",
-                answer: gemini_resposnse
+                success: gemini_resposnse.success,
+                answer: gemini_resposnse.output
             },
         ]
     }
