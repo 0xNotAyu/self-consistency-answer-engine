@@ -1,19 +1,27 @@
-import { GoogleGenAI } from "@google/genai";
+import "dotenv/config";
+import {OpenAI} from 'openai'
+import { SYSTEM_PROMPT } from "../prompts/system.prompt.js";
 
-const client = new GoogleGenAI({
-    baseURL:'https://aicredits.in/v1',
-    apiKey: process.env.GEMINI_API_KEY
+const client = new OpenAI({
+    baseURL: 'https://aicredits.in/v1',
+    apiKey: process.env.LLM_API_KEY
 })
 
-async function main(query) {
-    const response = await client.messages.create({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1024,
-        messages: [
-          {
-            role: "user",
-            content: query,
-          },
-        ],
-    })
+export async function AskGeminiAI(query) {
+   const response = await client.responses.create({
+       model: 'google/gemini-2.0-flash',
+       max_output_tokens: 1024,
+       input: [
+           {
+               role: 'system',
+               content: SYSTEM_PROMPT
+           },
+           {
+               role: 'user',
+               content: query
+           }
+       ]
+   })
+   
+  return response.output_text
 }

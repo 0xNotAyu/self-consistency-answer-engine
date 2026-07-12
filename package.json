@@ -1,1 +1,16 @@
-{"name":"Self-consistency-answer-engine","version":"1.0.0","dependencies":{"@anthropic-ai/claude-code":"^2.1.204","@anthropic-ai/sdk":"^0.111.0","@google/genai":"^2.11.0","dotenv":"^17.4.2","openai":"^6.46.0"}}
+{
+  "name":"Self-consistency-answer-engine",
+  "version":"1.0.0",
+  "type": "module",
+  "scripts": {
+    "start" : "node src/index.js"
+  },
+  "dependencies":
+    {
+      "@anthropic-ai/claude-code":"^2.1.204",
+      "@anthropic-ai/sdk":"^0.111.0",
+      "@google/genai":"^2.11.0",
+      "dotenv":"^17.4.2",
+      "openai":"^6.46.0"
+    }
+}
